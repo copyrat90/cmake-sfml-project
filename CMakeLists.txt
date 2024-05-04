@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.16)
-project(CMakeSFMLProject LANGUAGES CXX)
+project(CMakeSFMLProject VERSION 0.1.2 LANGUAGES CXX)
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 option(BUILD_SHARED_LIBS "Build shared libraries" OFF)
@@ -23,3 +23,13 @@ if(WIN32)
 endif()
 
 install(TARGETS CMakeSFMLProject)
+install(FILES LICENSE.md DESTINATION .)
+
+set(CPACK_PACKAGE_NAME CMakeSFMLProject)
+set(CPACK_PACKAGE_VENDOR MyCompany)
+set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "CMake SFML template project")
+
+set(CPACK_PACKAGE_INSTALL_DIRECTORY ${CPACK_PACKAGE_NAME})
+set(CPACK_VERBATIM_VARIABLES TRUE)
+
+include(CPack)
