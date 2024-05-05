@@ -35,7 +35,7 @@ jobs:
 
     - name: Pack
       shell: bash
-      run: cd build && cpack
+      run: cd build && cpack -C Release
 
     - name: Release
       uses: softprops/action-gh-release@v2

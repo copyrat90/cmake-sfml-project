@@ -30,6 +30,11 @@ install(TARGETS CMakeSFMLProject)
 install(FILES LICENSE.md RENAME CMakeSFMLProject.md DESTINATION licenses)
 install(FILES ${sfml_SOURCE_DIR}/license.md RENAME SFML.md DESTINATION licenses)
 
+# Copy PDB file too, if exists
+if(MSVC)
+    install(FILES $<TARGET_PDB_FILE:CMakeSFMLProject> DESTINATION bin OPTIONAL)
+endif()
+
 set(CPACK_PACKAGE_NAME CMakeSFMLProject)
 set(CPACK_PACKAGE_VENDOR MyCompany)
 set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "CMake SFML template project")
